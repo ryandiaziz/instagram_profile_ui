@@ -37,7 +37,7 @@ class ProfilePicture extends StatelessWidget {
               width: 5,
               color: Colors.white,
             ),
-            color: Colors.blue,
+            color: Colors.grey[300],
             borderRadius: BorderRadius.circular(60),
           ),
         ),
