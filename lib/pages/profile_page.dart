@@ -60,7 +60,7 @@ class ProfilePage extends StatelessWidget {
                     children: const [
                       InfoItem(
                         title: "Posts",
-                        value: "0",
+                        value: "11",
                       ),
                       InfoItem(
                         title: "Followers",
@@ -159,7 +159,49 @@ class ProfilePage extends StatelessWidget {
                 icon: Icons.person_pin_outlined,
               ),
             ],
+          ),
+          GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: 11,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              mainAxisSpacing: 5,
+              crossAxisSpacing: 5,
+              crossAxisCount: 3,
+            ),
+            itemBuilder: (context, index) => Image.network(
+              "https://picsum.photos/id/${index + 200}/200/300",
+              fit: BoxFit.cover,
+            ),
           )
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        currentIndex: 4,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: "Shopping",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.movie_filter_rounded),
+            label: "Shopping",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag_rounded),
+            label: "Shopping",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Shopping",
+          ),
         ],
       ),
     );
