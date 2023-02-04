@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../widgets/profile_picture.dart';
 import '../widgets/info_item.dart';
+import '../widgets/story_item.dart';
+import '../widgets/tab_item.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -132,74 +134,32 @@ class ProfilePage extends StatelessWidget {
           const SizedBox(height: 5),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Row(
-              children: const [
-                StoryItem(
-                  title: "Story 1",
-                ),
-                StoryItem(
-                  title: "Story 2",
-                ),
-                StoryItem(
-                  title: "Story 3",
-                ),
-                StoryItem(
-                  title: "Story 4",
-                ),
-              ],
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: const [
+                  StoryItem(title: "Story 1"),
+                  StoryItem(title: "Story 2"),
+                  StoryItem(title: "Story 3"),
+                  StoryItem(title: "Story 4"),
+                  StoryItem(title: "Story 5"),
+                  StoryItem(title: "Story 6"),
+                ],
+              ),
             ),
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class StoryItem extends StatelessWidget {
-  const StoryItem({
-    Key? key,
-    required this.title,
-  }) : super(key: key);
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 10),
-      child: Column(
-        children: [
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Container(
-                height: 80,
-                width: 80,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(40),
-                  color: Colors.grey[300],
-                ),
+          const SizedBox(height: 15),
+          Row(
+            children: const [
+              TabItem(
+                active: true,
+                icon: Icons.grid_on_outlined,
               ),
-              Container(
-                height: 77,
-                width: 77,
-                decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: NetworkImage('https://picsum.photos/200/300'),
-                    fit: BoxFit.cover,
-                  ),
-                  border: Border.all(
-                    color: Colors.white,
-                    width: 3,
-                  ),
-                  borderRadius: BorderRadius.circular(40),
-                  color: Colors.amber,
-                ),
+              TabItem(
+                icon: Icons.person_pin_outlined,
               ),
             ],
-          ),
-          const SizedBox(height: 5),
-          Text(title)
+          )
         ],
       ),
     );
